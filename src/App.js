@@ -1,12 +1,13 @@
 import React from "react";
-
+import Weather from "./Weather";
 export default App;
 
 function App() {
   return (
     <div className="App">
       <div className="container">
-    <h1>Weather App</h1>
+   
+    <Weather/>
      <footer>This project is coded by {""}
       <a href="https://gleeful-yeot-054adb.netlify.app/index.html"target="_blank"rel="noreferrer">
         AAL
