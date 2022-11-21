@@ -1,7 +1,17 @@
-import React from "react";
+import React, {useState} from "react";
+import axios from "axios";
 import "./Weather.css";
 
-export default function Weather(){
+export default function Weather() { 
+    const [ready, setReady] = useState(false);
+    const [temperature, setTemperature] = useState(null);
+function handleResponse(response){
+    console.log(response.data);
+    setTemperature(response.data.main.temp);
+    setReady(true);
+}
+
+if (ready) {
     return(
         <div className="Weather">
             <form>
@@ -31,7 +41,7 @@ export default function Weather(){
                     src="https://ssl.gstatic.com/onebox/weather/64/sunny.png" 
                     alt="Mostly Cloudy"
                     className="float-left"/>
-                    <span className="temperature">6</span>
+                    <span className="temperature">{Math.round(temperature)}</span>
                     <span className="unit">°C</span>
                     </div>
                     </div>
@@ -44,5 +54,14 @@ export default function Weather(){
                 </div>
             </div>
         </div>
-    )
+    );
+} else {
+    const apiKey = "a30966f3d7842afca4afb01054da2536";
+    let city = "London";
+    let apiUrl = 
+    `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+    axios.get(apiUrl).then(handleResponse);
+
+    return "Loading...";
+}
     }
