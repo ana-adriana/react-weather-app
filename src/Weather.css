@@ -36,7 +36,7 @@ font-size: 64px;
 line-height: 64px;
 font-weight: 400;
 }
-.Weather img{
+.Weather canvas{
     display: inline-block;
     height: 60px;
     margin-top: unset;
