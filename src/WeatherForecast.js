@@ -38,6 +38,15 @@ function handleResponse(response){
                     {Math.round(forecast[0].temp.min)}°
                     </span>
             </div>
+            <WeatherIcon code={forecast[1].weather[1].icon} size={36} />
+            <div className="WeatherForecast-temperatures">
+                <span className="WeatherForecast-temperature-max">
+                    {Math.round(forecast[1].temp.max)}°
+                    </span>
+                <span className="WeatherForecast-temperature-min">
+                    {Math.round(forecast[1].temp.min)}°
+                    </span>
+            </div>
         </div>
     </div>
     </div>
