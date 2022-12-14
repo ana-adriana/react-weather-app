@@ -31,7 +31,7 @@ function handleResponse(response){
         <div className = "row">
         <div className="col">
             <div className="WeatherForecast-day">
-                {day(0)}  
+                {day(0)}
                 </div>
             <WeatherIcon code={forecast[0].weather[0].icon} size={36} />
             <div className="WeatherForecast-temperatures">
@@ -43,9 +43,7 @@ function handleResponse(response){
                     </span>
             </div>
             </div>
-            <div className="WeatherForecast-day">
-                {day(1)}
-            </div>
+            
             <div className="col">
             <WeatherIcon code={forecast[1].weather[1].icon} size={36} />
             <div className="WeatherForecast-temperatures">
@@ -57,9 +55,7 @@ function handleResponse(response){
                     </span>
             </div>
             </div>
-            <div className="WeatherForecast-day">
-                {day(2)}
-            </div>
+           
             <div className="col">
             <WeatherIcon code={forecast[2].weather[2].icon} size={36} />
             <div className="WeatherForecast-temperatures">
@@ -71,9 +67,7 @@ function handleResponse(response){
                     </span>
             </div>
             </div>
-            <div className="WeatherForecast-day">
-                {day(3)}
-            </div>
+           
             <div className="col">
             <WeatherIcon code={forecast[3].weather[3].icon} size={36} />
             <div className="WeatherForecast-temperatures">
@@ -85,9 +79,7 @@ function handleResponse(response){
                     </span>
             </div>
             </div>
-            <div className="WeatherForecast-day">
-                {day(4)}
-            </div>
+           
             <div className="col">
             <WeatherIcon code={forecast[4].weather[4].icon} size={36} />
             <div className="WeatherForecast-temperatures">
