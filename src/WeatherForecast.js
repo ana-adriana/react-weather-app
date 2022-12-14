@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState, useEffect } from "react";
 import WeatherIcon from "./WeatherIcon";
 import "./WeatherForecast.css";
 import axios from "axios";
@@ -6,6 +6,10 @@ import axios from "axios";
 export default function WeatherForecast(props){
     let[loaded, setLoaded] = useState(false);
     let [forecast, setForecast]=useState(null);
+
+    useEffect(() =>{
+setLoaded(false);
+    }, [props.coordinates]);
 
     function day(){
         let date=new Date(forecast.data.dt * 1000);
@@ -27,7 +31,7 @@ function handleResponse(response){
         <div className = "row">
         <div className="col">
             <div className="WeatherForecast-day">
-                {day()}
+                {day(0)}
                 </div>
             <WeatherIcon code={forecast[0].weather[0].icon} size={36} />
             <div className="WeatherForecast-temperatures">
@@ -38,6 +42,8 @@ function handleResponse(response){
                     {Math.round(forecast[0].temp.min)}°
                     </span>
             </div>
+            </div>
+            <div className="col">
             <WeatherIcon code={forecast[1].weather[1].icon} size={36} />
             <div className="WeatherForecast-temperatures">
                 <span className="WeatherForecast-temperature-max">
@@ -47,8 +53,41 @@ function handleResponse(response){
                     {Math.round(forecast[1].temp.min)}°
                     </span>
             </div>
+            </div>
+            <div className="col">
+            <WeatherIcon code={forecast[2].weather[2].icon} size={36} />
+            <div className="WeatherForecast-temperatures">
+                <span className="WeatherForecast-temperature-max">
+                    {Math.round(forecast[2].temp.max)}°
+                    </span>
+                <span className="WeatherForecast-temperature-min">
+                    {Math.round(forecast[2].temp.min)}°
+                    </span>
+            </div>
+            </div>
+            <div className="col">
+            <WeatherIcon code={forecast[3].weather[3].icon} size={36} />
+            <div className="WeatherForecast-temperatures">
+                <span className="WeatherForecast-temperature-max">
+                    {Math.round(forecast[3].temp.max)}°
+                    </span>
+                <span className="WeatherForecast-temperature-min">
+                    {Math.round(forecast[3].temp.min)}°
+                    </span>
+            </div>
+            </div>
+            <div className="col">
+            <WeatherIcon code={forecast[4].weather[4].icon} size={36} />
+            <div className="WeatherForecast-temperatures">
+                <span className="WeatherForecast-temperature-max">
+                    {Math.round(forecast[4].temp.max)}°
+                    </span>
+                <span className="WeatherForecast-temperature-min">
+                    {Math.round(forecast[4].temp.min)}°
+                    </span>
+            </div>
+            </div>
         </div>
-    </div>
     </div>
     );
         } else {
